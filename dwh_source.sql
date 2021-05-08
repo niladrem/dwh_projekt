@@ -24,7 +24,7 @@ CREATE TABLE vendor (
 	province varchar(20),
 	postcode varchar(6),
 	city varchar(20),
-	url varchar(200),
+	url varchar(200) NOT NULL,
 	is_developer bit
 );
 
