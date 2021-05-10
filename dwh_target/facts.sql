@@ -6,6 +6,8 @@ CREATE TABLE flatFacts (
 	flatId int IDENTITY(1, 1) PRIMARY KEY,
 	districtId int NOT NULL foreign key references DistrictDimension(districtId),
 	vendorId int NOT NULL foreign key references VendorDimension(vendorId),
+	price money NOT NULL,
+	pricePerMeter money NOT NULL,
 	originalFlatId int NOT NULL, --"Nr oferty w Otodom"
 	area float NOT NULL,
 	market varchar(10) NOT NULL,
