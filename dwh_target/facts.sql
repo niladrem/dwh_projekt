@@ -21,6 +21,5 @@ CREATE TABLE flatFacts (
 	availableDate int NOT NULL foreign key references DateDimension(DateID),
 	typeOfBuilding varchar(20) NOT NULL, --apartamentowiec/blok
 	elevator varchar(3) NOT NULL, --yes/no
-	validFrom int NOT NULL foreign key references DateDimension(DateID),
-	validTo int NOT NULL foreign key references DateDimension(DateID)
+	snapshotDate int NOT NULL foreign key references DateDimension(DateID),
 );

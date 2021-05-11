@@ -13,19 +13,22 @@ CREATE TABLE districts (
 	population_total int NULL,
 	population_dens float NULL,
 	left_bank_part bit NOT NULL,
-	district_office_address varchar(50) NULL,
+	district_office_street varchar(50) NULL,
+	district_office_number varchar(30) NULL,
+	district_office_postcode varchar(6) NULL,
 	district_url varchar(50) NOT NULL
 );
 
 CREATE TABLE vendor (
 	name varchar(100) NOT NULL,
 	since date NOT NULL,
-	address varchar(100),
 	province varchar(20),
 	postcode varchar(6),
 	city varchar(20),
 	url varchar(200) NOT NULL,
-	is_developer bit
+	is_developer bit,
+	address_street varchar(100),
+	address_number varchar(30)
 );
 
 
@@ -40,7 +43,7 @@ WITH
 );
 
 BULK INSERT vendor
-FROM 'D:\__DANE\studia\bd2\dwh_projekt\vendor.csv'
+FROM 'D:\__DANE\studia\bd2\dwh_projekt\vendor2.csv'
 WITH
 (
     CODEPAGE = '65001',
