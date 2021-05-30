@@ -8,7 +8,7 @@ CREATE TABLE flatFacts (
 	vendorId int NOT NULL foreign key references VendorDimension(vendorId),
 	price money NOT NULL,
 	pricePerMeter money NOT NULL,
-	originalFlatId int NOT NULL, --"Nr oferty w Otodom"
+	originalFlatId varchar(20) NOT NULL, --"Nr oferty w Otodom"
 	area float NOT NULL,
 	market varchar(10) NOT NULL,
 	floatFloor int NOT NULL,
