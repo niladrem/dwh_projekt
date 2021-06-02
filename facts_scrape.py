@@ -48,9 +48,14 @@ for page in pages_range:
         pattern = '"dateCreated":"(\d{4}-\d{2}-\d{2})'
         avail = oferta.find(attrs={'class': pasek, 'aria-label': 'Dostępne od'})
         if avail is None:
-            avail = re.search(pattern, soup.find(attrs={'type': 'application/json'}).contents[0]).groups()[0]
+            try:
+                avail = re.search(pattern, oferta.find(attrs={'type': 'application/json'}).contents[0]).groups()[0]
+            except:
+                continue
+        else:
+            avail = avail.find(class_="css-1ytkscc").get_text().strip()
         elevator = "no"
-        dodatki = soup.find_all(class_='css-1r5xhnu')
+        dodatki = oferta.find_all(class_='css-1r5xhnu')
         for d in dodatki:
             if d.get_text().strip()=="winda":
                 elevator = "yes"
